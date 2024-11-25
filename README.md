@@ -16,6 +16,7 @@ pip install -r requirements.txt
 
 Install React dependencies
 ```bash
+cd frontend
 npm install
 ```
 
@@ -35,8 +36,14 @@ Add `config.json` file in your root path
 ## Start-up project
 
 1. Run backend web service (Flask)
+```bash
+python backend/app.py 
+```
 2. Run frontend web application (React)
-
+```bash
+cd fontend
+npm run dev
+```
 # Description 
 
-## Structure
+TBD
