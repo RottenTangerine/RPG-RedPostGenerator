@@ -1,7 +1,3 @@
-## Doc Reference
-
-[Document Models - Analyze Document](https://learn.microsoft.com/en-us/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-v4.0%20(2024-07-31-preview)&viewFallbackFrom=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)
-
 # Tutorial
 
 ## Prequest
@@ -30,9 +26,9 @@ Add `config.json` file in your root path
 ```json
 {
   "OpenAI": {
+    "endpoint": "YOUR ENDPOINT",
     "key": "YOUR API KEY",
-    "region": "REGION",
-    "endpoint": "YOUR API ENDPOINT"
+    "model": "MODEL DEPLOYMENT NAME"
   }
 }
 ```
