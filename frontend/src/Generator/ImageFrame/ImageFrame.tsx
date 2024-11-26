@@ -1,13 +1,15 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import Upload from './Upload';
+import Upload from './Utils/Upload.tsx';
+
+import {ResponseInfo} from "../Generator.tsx";
 
 // upload to parent component
-interface UploadProps{
-    responseUpload: (response_data: string) => void;
+interface ImageFrameProps{
+    responseUpload: (response_data: ResponseInfo) => void;
 }
 
-const ImageFrame: React.FC<UploadProps> = ({responseUpload}) => {
+const ImageFrame: React.FC<ImageFrameProps> = ({responseUpload}) => {
     const [file, setFile] = useState<File | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -24,7 +26,7 @@ const ImageFrame: React.FC<UploadProps> = ({responseUpload}) => {
             const formData = new FormData();
             formData.append('image', file);
 
-            axios.post('http://127.0.0.1:5000/receipts', formData, {
+            axios.post('http://127.0.0.1:5000/api/receipts', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -45,9 +47,9 @@ const ImageFrame: React.FC<UploadProps> = ({responseUpload}) => {
     };
 
     return (
-        <div className={`relative ${isLoading ? 'opacity-50 pointer-events-none':''}`}>
+        <div className={`className="w-[500px] mx-auto mt-20  ${isLoading ? 'opacity-50 pointer-events-none':''}`}>
             <Upload onFileUpload={handleFileUpload}/>
-            <div>
+            <div className='grid place-items-center mt-4'>
                 <button onClick={handleSubmit} className="bg-blue-500 text-white px-4 py-2 rounded">
                     Submit
                 </button>

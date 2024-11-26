@@ -1,19 +1,17 @@
-// import Example from "./Example.tsx";
-import Image from "./Image/Image.tsx";
-import { useState } from "react";
+import Generator from "./Generator/Generator.tsx";
+
 
 function App() {
-    const [response, setResponse] = useState<string>('');
-
-    const handleResponseUpload = (response_data:string) => {
-        setResponse(response_data);
-    };
 
     return (
         <>
-            {/*<Example/>*/}
-            <Image responseUpload={handleResponseUpload}/>
-            {response && <h1>{response}</h1>}
+            <div className="grid place-items-center">
+                <h1 className="mt-20 font-extrabold text-4xl">小红书文章生成器</h1>
+                <p className="font-light text-xs">Red Post Generator</p>
+                <p className="mt-4">嘴太笨不知道怎么夸？用这个！</p>
+            </div>
+
+            <Generator/>
         </>
     );
 }

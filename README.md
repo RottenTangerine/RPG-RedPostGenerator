@@ -33,7 +33,7 @@ Add `config.json` file in your root path
   }
 }
 ```
-## Start-up project
+## Test project
 
 1. Run backend web service (Flask)
 ```bash
@@ -44,6 +44,12 @@ python backend/app.py
 cd fontend
 npm run dev
 ```
+
+## Deploy project
+
+
+
+
 # Description 
 
 TBD

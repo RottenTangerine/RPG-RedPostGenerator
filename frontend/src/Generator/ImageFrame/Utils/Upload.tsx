@@ -7,6 +7,7 @@ interface UploadProps {
 const ImageUpload: React.FC<UploadProps> = ({onFileUpload}) => {
     const dropzoneRef = useRef<HTMLDivElement | null>(null);
     const [previewSrc, setPreviewSrc] = useState<string>('');
+    const [isIllegalInput, setIsIllegalInput] = useState<boolean>(false);
 
     useEffect(() => {
         const dropzone = dropzoneRef.current;
@@ -28,9 +29,10 @@ const ImageUpload: React.FC<UploadProps> = ({onFileUpload}) => {
             dropzone.classList.remove('border-indigo-600');
             const file = e.dataTransfer?.files[0];
             if (file && isValidFileType(file)) {
+                setIsIllegalInput(false)
                 displayPreview(file);
             } else {
-                alert("Please select a valid image file (PNG, JPG, GIF).");
+                setIsIllegalInput(true);
             }
         };
 
@@ -38,9 +40,10 @@ const ImageUpload: React.FC<UploadProps> = ({onFileUpload}) => {
             const input = e.target as HTMLInputElement;
             const file = input.files?.[0];
             if (file && isValidFileType(file)) {
+                setIsIllegalInput(false)
                 displayPreview(file);
             } else {
-                alert("Please select a valid image file (PNG, JPG).");
+                setIsIllegalInput(true);
             }
         };
 
@@ -74,7 +77,7 @@ const ImageUpload: React.FC<UploadProps> = ({onFileUpload}) => {
     }, []);
 
     return (
-        <div className="w-[400px] relative border-2 border-gray-300 border-dashed rounded-lg p-6" ref={dropzoneRef}>
+        <div className="w-[400px] relative border-2 border-gray-300 border-dashed rounded-lg p-6 hover:border-blue-600" ref={dropzoneRef}>
             <input type="file" id="file-upload" accept="image/png, image/jpeg"
                    className="absolute inset-0 w-full h-full opacity-0 z-50"/>
             <div className="text-center">
@@ -88,8 +91,10 @@ const ImageUpload: React.FC<UploadProps> = ({onFileUpload}) => {
                     </label>
                 </h3>
                 <p className="mt-1 text-xs text-gray-500">PNG, JPG up to 10MB</p>
+                {isIllegalInput && <p className="mt-4 text-xs text-red-600">Invalid input</p>}
             </div>
             {previewSrc && <img src={previewSrc} className="mt-4 mx-auto max-h-40" alt="Preview"/>}
+
         </div>
     );
 };
