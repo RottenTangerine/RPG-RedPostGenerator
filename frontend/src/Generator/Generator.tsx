@@ -15,11 +15,10 @@ function Generator() {
 
     return (
         <>
-            <div className="grid xl:grid-cols-4">
-                <div></div>
+            <div className="grid lg:grid-cols-2 xl:grid-cols-1 place-items-center">
                 <ImageFrame responseUpload={handleResponseUpload}/>
-                {(() => { if (typeof response !== "undefined") { return <PostFrame response={response} />; } return null; })()}
-                <div></div>
+                {(() => { if (typeof response !== "undefined") { // @ts-ignore
+                    return <PostFrame response={response} />; } return null; })()}
             </div>
         </>
     );

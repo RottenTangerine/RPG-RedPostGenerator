@@ -1,4 +1,6 @@
-# Tutorial
+# Red Post Generator (RPG)
+
+![preview](assets/proj-preview.png)
 
 ## Prequest
 
@@ -18,10 +20,14 @@ Install React dependencies
 ```bash
 cd frontend
 npm install
+
+# build static webpage
+npm run build
 ```
 
 ###  Config
 Add `config.json` file in your root path
+(I use Azure OpenAI resource here)
 
 `config.json`:
 ```json
@@ -37,17 +43,9 @@ Add `config.json` file in your root path
 
 1. Run backend web service (Flask)
 ```bash
-python backend/app.py 
+cd backend
+flask run
 ```
-2. Run frontend web application (React)
-```bash
-cd fontend
-npm run dev
-```
-
-## Deploy project
-
-
 
 
 # Description 

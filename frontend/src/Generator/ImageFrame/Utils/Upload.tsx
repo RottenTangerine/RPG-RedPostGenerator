@@ -77,7 +77,7 @@ const ImageUpload: React.FC<UploadProps> = ({onFileUpload}) => {
     }, []);
 
     return (
-        <div className="w-[400px] relative border-2 border-gray-300 border-dashed rounded-lg p-6 hover:border-blue-600" ref={dropzoneRef}>
+        <div className="sm:w-[250px] w-[400px] relative border-2 border-gray-300 border-dashed rounded-lg p-6 hover:border-blue-600" ref={dropzoneRef}>
             <input type="file" id="file-upload" accept="image/png, image/jpeg"
                    className="absolute inset-0 w-full h-full opacity-0 z-50"/>
             <div className="text-center">

@@ -47,9 +47,9 @@ const ImageFrame: React.FC<ImageFrameProps> = ({responseUpload}) => {
     };
 
     return (
-        <div className={`className="w-[500px] mx-auto mt-20  ${isLoading ? 'opacity-50 pointer-events-none':''}`}>
+        <div className={`className="grid place-items-center sm:w-[300px] w-[500px] mt-20  ${isLoading ? 'opacity-50 pointer-events-none':''}`}>
             <Upload onFileUpload={handleFileUpload}/>
-            <div className='grid place-items-center mt-4'>
+            <div className='mt-4'>
                 <button onClick={handleSubmit} className="bg-blue-500 text-white px-4 py-2 rounded">
                     Submit
                 </button>

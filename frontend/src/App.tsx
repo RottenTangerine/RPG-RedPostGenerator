@@ -12,6 +12,10 @@ function App() {
             </div>
 
             <Generator/>
+
+            <div>
+                <p className="mt-20"></p>
+            </div>
         </>
     );
 }
